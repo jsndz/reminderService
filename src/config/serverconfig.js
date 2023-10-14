@@ -9,6 +9,6 @@ module.exports = {
     EMAIL_ID : process.env.EMAIL_ID,
     MESSAGE_BROKER_URL:process.env.MESSAGE_BROKER_URL,
     EXCHANGE_NAME : process.env.EXCHANGE_NAME,
-    EXCHANGE_BINDING_KEY:process.env.EXCHANGE_BINDING_KEY,
+    REMINDER_BINDING_KEY:process.env.EXCHANGE_BINDING_KEY,
 
 }
