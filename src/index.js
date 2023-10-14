@@ -3,16 +3,19 @@ const bodyParser = require('body-parser');
 const setUpJobs = require('./utils/jobs');
 
 const {PORT} = require('./config/serverconfig');
-const {sendBasicEmail} = require('./services/email-service');
+const {createChannel} = require('./utils/messagequeue')
+// const {sendBasicEmail} = require('./services/email-service');
 
 const TicketController = require('./controller/ticket-controller')
 
 
-const setUpServer = () => {
+const setUpServer = async () => {
     const app = express();
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:true}));
+
+    const channel = await createChannel();
 
     app.use('/api/v1/tickets',TicketController.create);
 
